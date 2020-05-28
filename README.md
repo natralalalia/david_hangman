@@ -1,0 +1,2 @@
+# hangman
+Short hangman game
