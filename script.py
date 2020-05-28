@@ -36,6 +36,7 @@ fill_in(first_letter)
 fill_in(last_letter)
 
 no_of_guesses = 10
+guesses = set()
 
 # Guessing starts
 while no_of_guesses:
@@ -44,16 +45,21 @@ while no_of_guesses:
     print("You have {} guesses left".format(no_of_guesses))
 
     letter = input("Your guess: ")
-    if letter in word:
-        print("Hooray! {} was correct!".format(letter))
-        fill_in(letter)
-        print(guess)
-
-        if guess == list(word):
-            print("Congrats! The word was {}".format(word))
-            exit()
-
+    if letter in guesses:
+        print("You already tried this one!")
+        print("The letters you already tried are: {}".format(sorted(guesses)))
     else:
-        no_of_guesses -= 1
+        if letter in word:
+            print("Hooray! {} was correct!".format(letter))
+            fill_in(letter)
+            print(guess)
+
+            if guess == list(word):
+                print("Congrats! The word was {}".format(word))
+                exit()
+
+        else:
+            no_of_guesses -= 1
+        guesses.add(letter)
 
 print("Sad. The word was: {}".format(word))
