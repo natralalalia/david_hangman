@@ -1,0 +1,59 @@
+from random_word import RandomWords
+
+
+def find_occurrence(character):
+    for index, current_letter in enumerate(word):
+        if current_letter == character:
+            yield index
+
+
+def fill_in(character):
+    for occ in find_occurrence(character):
+        guess[occ] = character
+
+
+r = RandomWords()
+
+# Return a single random word
+word = r.get_random_word(hasDictionaryDef="true")
+
+length = len(word)
+print("Length: {}".format(length))
+
+first_letter = word[0]
+print("First letter: {}".format(first_letter))
+
+last_letter = word[length - 1]
+print("Last letter: {}".format(last_letter))
+
+# Initialise guess with first and last letter
+guess = [None] * length
+guess[0] = first_letter
+guess[len(guess) - 1] = last_letter
+
+# Fill in the guess with other occurrences of the first and last letter
+fill_in(first_letter)
+fill_in(last_letter)
+
+no_of_guesses = 10
+
+# Guessing starts
+while no_of_guesses:
+    print("------------------------------------------------------------")
+    print("Current guess: {}".format(guess))
+    print("You have {} guesses left".format(no_of_guesses))
+
+    letter = input("Your guess: ")
+    if letter in word:
+        print("Hooray! {} was correct!".format(letter))
+        fill_in(letter)
+        print(guess)
+
+        if guess == list(word):
+            print("Congrats! The word was {}".format(word))
+            exit()
+
+    else:
+        no_of_guesses -= 1
+
+print("Sad. The word was: {}".format(word))
