@@ -12,6 +12,14 @@ def fill_in(character):
         guess[occ] = character
 
 
+difficulty = input("Choose your difficulty level: easy/medium/hard: ")
+if difficulty == "easy":
+    no_of_guesses = 20
+elif difficulty == "medium":
+    no_of_guesses = 12
+elif difficulty == "hard":
+    no_of_guesses = 7
+
 r = RandomWords()
 
 # Return a single random word
@@ -35,7 +43,6 @@ guess[len(guess) - 1] = last_letter
 fill_in(first_letter)
 fill_in(last_letter)
 
-no_of_guesses = 10
 guesses = set()
 
 # Guessing starts
