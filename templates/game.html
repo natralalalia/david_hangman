@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="POST">
+
+        <input name="text">
+        <input type="submit">
+
+    </form>
+
+    {% if value %}
+    <h1>The letter status is: {{ value }}</h1>
+    {% endif %}
+
+    <h1>The level is: {{ level }}</h1>
+
+    {% if guesses %}
+    <h1>The no of guesses is: {{ guesses }}</h1>
+    {% endif %}
+
+    <h1> The current guess is : {{ current_guess }}</h1>
+
+    <style type="text/css">
+    .txtUpsideDown
+    {
+        filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=2);  /* IE6,IE7 */
+        ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)"; /* IE8 */
+        -moz-transform: rotate(-180deg);  /* FF3.5+ */
+        -o-transform: rotate(-180deg);  /* Opera 10.5 */
+        -webkit-transform: rotate(-180deg);  /* Safari 3.1+, Chrome */
+        position: absolute;
+    }
+    </style>
+    </head>
+    <body>
+    <div class="txtUpsideDown" style="color:lightgrey;">The word is: {{ word }}</div>
+
+
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    <form method="POST">
+        <input type="radio" id="easy" name="level" value="easy">
+        <label for="easy">Easy</label><br>
+        <input type="radio" id="medium" name="level" value="medium">
+        <label for="medium">Medium</label><br>
+        <input type="radio" id="hard" name="level" value="hard">
+        <label for="hard">Hard</label>
+        <h1></h1>
+        <input type="submit" value = 'Submit' class="button_active" onclick="location.href='/game';" />
+    </form>
+
+{% endblock content %}
