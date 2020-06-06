@@ -77,17 +77,23 @@ var right_leg = {
     context.stroke();
   }
 };
-context.beginPath();
-context.strokeStyle = "red"; // color
-context.lineWidth = 3;
-context.arc(200, 50, 20, 0, Math.PI, false); // draw semicircle for smiling
-context.stroke();
 
-right_eye.draw();
-left_eye.draw();
-body.draw();
-left_arm.draw();
-right_arm.draw();
-left_leg.draw();
-right_leg.draw();
-head.draw();
+var draw_smile = {
+    draw : function() {
+        context.beginPath();
+        context.strokeStyle = "red"; // color
+        context.lineWidth = 3;
+        context.arc(200, 50, 20, 0, Math.PI, false); // draw semicircle for smiling
+        context.stroke();
+    }
+};
+
+
+//right_eye.draw();
+//left_eye.draw();
+//body.draw();
+//left_arm.draw();
+//right_arm.draw();
+//left_leg.draw();
+//right_leg.draw();
+//head.draw();

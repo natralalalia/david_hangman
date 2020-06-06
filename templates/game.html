@@ -30,7 +30,6 @@
         position: absolute;
     }
     </style>
-    </head>
     <body>
     <div class="txtUpsideDown" style="color:lightgrey;">The word is: {{ word }}</div>
 
@@ -38,8 +37,10 @@
 {% endblock content %}
 
     {% block canvas %}
-
         <canvas id="myCanvas" width="500" height="300"></canvas>
         <script src="{{ url_for('static', filename='stickman.js') }}"></script>
+        {% if value == 'False' %}
+            <script>left_arm.draw();</script>
+        {% endif %}
 
     {% endblock canvas %}
