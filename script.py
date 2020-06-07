@@ -103,7 +103,7 @@ def get_no_of_guesses():
     else:
         no_of_guesses = 7
 
-    return no_of_guesses
+    return 10
 
 
 @app.route('/new_game', methods=['POST'])
@@ -120,7 +120,10 @@ class Word:
 def game():
     word = Word().WORD
     level = request.args['level']
-    return render_template('game.html', title='Hangman', word=word, level=level)
+    init_guess = init_guess_list(word, guessed_letters)
+    current_guess_text_final = get_current_guess_text(init_guess)
+    return render_template('game.html', title='Hangman', word=word, level=level,
+                           current_guess=str(current_guess_text_final))
 
 
 @app.route('/game', methods=['GET'])

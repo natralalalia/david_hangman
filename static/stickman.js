@@ -5,10 +5,15 @@ context.fillStyle = "bisque"; // #ffe4c4
 context.fill();
 
 var head = {
-   draw : function() {
+  draw : function() {
+    context.beginPath();
+    context.fillStyle = "bisque"; // #ffe4c4
     context.arc(200, 50, 30, 0, Math.PI * 2, true); // draw circle for head
-   }
-}
+    context.arc(200, 450, 50, 0, Math.PI * 2, true);
+    // (x,y) center, radius, start angle, end angle, anticlockwise
+    context.fill();
+  }
+};
 
 var right_eye = {
   draw : function() {
@@ -78,22 +83,12 @@ var right_leg = {
   }
 };
 
-var draw_smile = {
+var smile = {
     draw : function() {
-        context.beginPath();
-        context.strokeStyle = "red"; // color
-        context.lineWidth = 3;
-        context.arc(200, 50, 20, 0, Math.PI, false); // draw semicircle for smiling
-        context.stroke();
-    }
+      context.beginPath();
+      context.strokeStyle = "red"; // color
+      context.lineWidth = 3;
+      context.arc(200, 50, 20, 0, Math.PI, false); // draw semicircle for smiling
+      context.stroke();
+   }
 };
-
-
-//right_eye.draw();
-//left_eye.draw();
-//body.draw();
-//left_arm.draw();
-//right_arm.draw();
-//left_leg.draw();
-//right_leg.draw();
-//head.draw();

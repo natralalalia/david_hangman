@@ -39,8 +39,42 @@
     {% block canvas %}
         <canvas id="myCanvas" width="500" height="300"></canvas>
         <script src="{{ url_for('static', filename='stickman.js') }}"></script>
-        {% if value == 'False' %}
-            <script>left_arm.draw();</script>
-        {% endif %}
+        <!--{% if value == 'False' %}-->
+            {% if guesses <= 9 %}
+                <script>head.draw();</script>
+            {% endif %}
+            <!--<script>smile.draw();</script>-->
+            {% if guesses <= 8 %}
+                <script>left_arm.draw();</script>
+            {% endif %}
+
+            {% if guesses <= 7 %}
+                <script>right_arm.draw();</script>
+            {% endif %}
+
+            {% if guesses <= 6 %}
+                <script>smile.draw();</script>
+            {% endif %}
+
+            {% if guesses <= 5 %}
+                <script>left_leg.draw();</script>
+            {% endif %}
+
+            {% if guesses <= 4 %}
+                <script>right_leg.draw();</script>
+            {% endif %}
+
+            {% if guesses <= 3 %}
+                <script>right_eye.draw();</script>
+            {% endif %}
+
+            {% if guesses <= 2 %}
+                <script>left_eye.draw();</script>
+            {% endif %}
+
+            {% if guesses <= 1 %}
+                <script>body.draw();</script>
+            {% endif %}
+        <!--{% endif %}-->
 
     {% endblock canvas %}
