@@ -95,13 +95,13 @@ def get_level():
 
 
 def get_no_of_guesses():
-    level = get_level()
-    if level == 'easy':
-        no_of_guesses = 20
-    elif level == 'medium':
-        no_of_guesses = 10
-    else:
-        no_of_guesses = 7
+    # level = get_level()
+    # if level == 'easy':
+    #     no_of_guesses = 20
+    # elif level == 'medium':
+    #     no_of_guesses = 10
+    # else:
+    #     no_of_guesses = 7
 
     return 10
 
@@ -122,7 +122,7 @@ def game():
     level = request.args['level']
     init_guess = init_guess_list(word, guessed_letters)
     current_guess_text_final = get_current_guess_text(init_guess)
-    return render_template('game.html', title='Hangman', word=word, level=level,
+    return render_template('game.html', title='Hangman', word=word, level=level, guesses=get_no_of_guesses(),
                            current_guess=str(current_guess_text_final))
 
 

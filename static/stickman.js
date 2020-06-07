@@ -92,3 +92,8 @@ var smile = {
       context.stroke();
    }
 };
+
+
+//var left_arm_pic = new Image(100, 200);
+//left_arm_pic.src = 'david_left_arm.jpg';
+//document.body.appendChild(left_arm_pic);
