@@ -16,4 +16,17 @@
     {% if success %}
     <h1>{{success}}</h1>
     {% endif %}
+
+    {% if word %}
+    <h1>The word was: {{word}}</h1>
+    {% endif %}
+
+    {% if success == 'Fail!' %}
+        <img width="280" height="500" src="/static/david_broken_left.png" style="transform:rotate(270deg);">
+        <img width="280" height="500" src="/static/david_broken_right.png" style="transform:rotate(90deg);">
+    {% endif %}
+
+    {% if success == 'Success!'%}
+        <img width="280" height="500" src="/static/david_six.png">
+    {% endif %}
 {% endblock content %}

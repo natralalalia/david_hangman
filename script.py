@@ -103,7 +103,7 @@ def get_no_of_guesses():
     # else:
     #     no_of_guesses = 7
 
-    return 10
+    return 9
 
 
 @app.route('/new_game', methods=['POST'])
@@ -173,15 +173,15 @@ def game_post():
                     false_guesses.add(new_guess)
 
     if target_letters == guessed_letters:
-        return render_template('home.html', success='Sucess!')
+        return render_template('home.html', success='Success!', word=word)
 
     if get_guesses() == 0:
-        return render_template('home.html', success='Fail!')
+        return render_template('home.html', success='Fail!', word=word)
 
     guesses = get_guesses()
 
     return render_template('game.html', title='Hangman', value=guessed, word=word, guesses=guesses, level=level,
-                           current_guess=str(current_guess_text_final))
+                           current_guess=str(current_guess_text_final), false_guesses=" ".join(sorted(false_guesses)))
 
 
 def find_occurrence(character, word):
@@ -211,7 +211,7 @@ def get_current_guess_text(current_guess):
     current_guess_text = ['_'] * length
 
     for index, letter in enumerate(current_guess):
-        if letter in list(string.ascii_lowercase):
+        if letter in list(string.ascii_letters) or letter == '-':
             current_guess_text[index] = letter
 
     current_guess_text_final = ""
