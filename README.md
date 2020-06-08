@@ -1,5 +1,5 @@
 # hangman
-Short hangman game
+Short hangman game that uses Michelangelo's David instead of the old stickman. Why not?
 
 
 ## Docker (dev mode)
