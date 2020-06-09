@@ -1,8 +1,10 @@
 {% extends "layout.html" %}
 
 {% block current_guess %}
-    <h2 style="text-align:center"> {{ current_guess }}</h2>
-    <form style="text-align:center" method="POST">
+    <div class="split left">
+        <div class="centered">
+    <h2> {{ current_guess }}</h2>
+    <form method="POST">
 
         <input name="text">
         <input type="submit">
@@ -10,10 +12,12 @@
     </form>
 
     {% if guesses %}
-    <h2 style="text-align:center">{{ guesses }} guesses left!</h2>
+    <h2>{{ guesses }} guesses left!</h2>
     {% endif %}
 
-    <h2 style="text-align:center"> Already tried letters : {{ false_guesses }}</h2>
+    <h2> Already tried letters : {{ false_guesses }}</h2>
+    </div>
+    </div>
 {% endblock current_guess%}
 
 {% block content %}
@@ -29,22 +33,21 @@
         position: absolute;
     }
     </style>
-    <body>
-    <!--<div class="txtUpsideDown" style="color:lightgrey;">The word is: {{ word }}</div>-->
-
+    <div class="txtUpsideDown" style="color:lightgrey;">The word is: {{ word }}</div>
 
 {% endblock content %}
 
     {% block canvas %}
-        <canvas id="myCanvas" width="500" height="300"></canvas>
-        <script src="{{ url_for('static', filename='stickman.js') }}"></script>
-        <script> context.translate(70, 70); </script>
+    <div class="split right">
+        <div class="centered">
+        <!--<canvas id="myCanvas" width="500" height="300"></canvas>-->
+        <!--<script src="{{ url_for('static', filename='stickman.js') }}"></script>-->
         {% if guesses == 8 %}
-            <img width="100" height="300" src="/static/CORRECT_david_left_hand.png">
+            <img width="50" height="150" src="/static/CORRECT_david_left_hand.png">
         {% endif %}
 
         {% if guesses == 7 %}
-            <img width="210" height="300" src="/static/david_two.png">
+            <img width="210" height="300" src="/static/david_two.png" >
         {% endif %}
 
         {% if guesses == 6 %}
@@ -52,28 +55,24 @@
         {% endif %}
 
         {% if guesses == 5 %}
-            <img width="280" height="400" src="/static/david_four.png">
+            <img width="260" height="360" src="/static/david_four.png">
         {% endif %}
 
         {% if guesses == 4 %}
-            <img width="280" height="500" src="/static/david_five.png">
+            <img width="327" height="640" src="/static/david_five.png">
         {% endif %}
 
         {% if guesses == 3 %}
-            <img width="280" height="500" src="/static/david_six.png">
+            <img width="327" height="640" src="/static/david_six.png" >
         {% endif %}
 
         {% if guesses == 2 %}
-            <img width="280" height="500" src="/static/david_seven.png">
+            <img width="327" height="640" src="/static/david_seven.png">
         {% endif %}
 
         {% if guesses == 1 %}
-            <img width="280" height="500" src="/static/david_broken.png">
+            <img width="327" height="640" src="/static/david_broken.png">
         {% endif %}
-
-        <!--{% if guesses <= 1 %}-->
-            <!--<img width="280" height="500" src="/static/david_broken_left.png" style="transform:rotate(270deg);">-->
-            <!--<img width="280" height="500" src="/static/david_broken_right.png" style="transform:rotate(90deg);">-->
-        <!--{% endif %}-->
-
+        </div>
+    </div>
     {% endblock canvas %}
